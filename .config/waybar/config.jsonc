@@ -205,9 +205,9 @@
       "spacing": 15
     },
     "clock": {
-      "format": "{:󰥔 %H:%M 󰃭 %d %b %Y}",
+      "format": "{:%H:%M 󰃭 %d %b %Y}",
       "format-alt": "{: %I:%M %p  %a %d}",
-      //"format": "{:🕰️ %R  📅 %d/%m}",
+      // "format": "{:🕰️ %R  📅 %d/%m}",
       //"format-alt": "{:%A, %B %d, %Y (%R)} 🗓️ ",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
