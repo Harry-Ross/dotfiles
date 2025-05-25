@@ -1,9 +1,11 @@
-import = [
-  "~/.config/alacritty/hardhacker.toml"
-]
 
 [[hints.enabled]]
 regex = "[^ ]+\\.rs:\\d+:\\d+"
 command = { program = "code", args = [ "--goto" ] }
 mouse = { enabled = true }
+
+[general]
+import = [
+  "~/.config/alacritty/hardhacker.toml"
+]
 
