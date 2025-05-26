@@ -22,6 +22,8 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
-    spec = "harry.plugins",
+    spec = { 
+      { import = "harry.plugins" }
+    },
     change_detection = { notify = false }
 })
