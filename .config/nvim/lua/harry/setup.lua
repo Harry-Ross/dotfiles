@@ -18,3 +18,6 @@ vim.opt.smartindent = true
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+require('harry.lsp')
