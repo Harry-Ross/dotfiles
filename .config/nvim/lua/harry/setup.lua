@@ -21,3 +21,13 @@ vim.opt.relativenumber = true
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 require('harry.lsp')
+
+vim.keymap.set('n', '<leader>r', function()
+  vim.lsp.buf.references()
+end, { desc = "Find references" })
+
+vim.keymap.set('n', '<leader>i', function()
+  vim.lsp.buf.implementation()
+end, { desc = "Go to implementation" })
+
+vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Telescope document symbols" })
