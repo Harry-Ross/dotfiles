@@ -35,7 +35,6 @@
         "discord": "󰙯",
         "firefox": "",
         "kitty": "",
-        "nvim": "",
         "spotify": "",
         "zen": ""
     },
@@ -295,6 +294,7 @@
     "rewrite": {
       "(.*)zsh": "> [$1]",
       "(.*)fish": "> [$1]",
+      "(.*)nvim(.*)": "$2 - Neovim ",
       "(.*)Mozilla Firefox": "Firefox 󰈹",
       "(.*)Google Chrome": "Chrome ",
       "(.*)Visual Studio Code - Insiders": "Code 󰨞",
