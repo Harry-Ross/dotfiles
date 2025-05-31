@@ -1,0 +1,1 @@
+nordvpn status | grep -oP 'Status: \K.*'
