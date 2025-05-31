@@ -161,3 +161,5 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 eval "$(zoxide init zsh)"
+
+alias lg="lazygit"
