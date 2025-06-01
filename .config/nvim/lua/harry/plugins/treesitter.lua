@@ -4,7 +4,7 @@ return {
   lazy = false, 
   build = ":TSUpdate",
   opts = {
-    ensure_installed = { "astro", "css" }
+    ensure_installed = { "astro", "css", "cpp", "javascript", "terraform", "typescript", "tsx" }
   }
 }
 
