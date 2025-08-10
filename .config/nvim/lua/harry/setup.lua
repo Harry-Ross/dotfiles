@@ -35,18 +35,9 @@ vim.keymap.set('n', '<leader>i', function()
   vim.lsp.buf.implementation()
 end, { desc = "Go to implementation" })
 
--- https://www.mitchellhanberg.com/modern-format-on-save-in-neovim/
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
   callback = function(args)
-    -- 2
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      -- 3
-      buffer = args.buf,
-      callback = function()
-        -- 4 + 5
-        vim.lsp.buf.format { async = false, id = args.data.client_id }
-      end,
-    })
-  end
+    require("conform").format({ bufnr = args.buf })
+  end,
 })
