@@ -1,6 +1,6 @@
 return {
-    {
-        "ellisonleao/gruvbox.nvim",
-        opts = {}
-    },
+	{
+		"ellisonleao/gruvbox.nvim",
+		opts = {},
+	},
 }
