@@ -164,3 +164,5 @@ eval "$(zoxide init zsh)"
 
 alias lg="lazygit"
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
+export EDITOR="nvim"
