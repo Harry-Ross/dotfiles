@@ -7,6 +7,12 @@ return {
 			"icon",
 			"size",
 		},
+		view_options = {
+			show_hidden = true,
+			is_always_hidden = function(name, _)
+				return name == "node_modules" or name == ".git"
+			end,
+		},
 	},
 	-- Optional dependencies
 	dependencies = { { "echasnovski/mini.icons", opts = {} } },

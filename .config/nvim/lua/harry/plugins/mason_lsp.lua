@@ -6,7 +6,6 @@ return {
 			"clangd",
 			"cmake",
 			"eslint",
-			"java_language_server",
 			"jsonls",
 			"ts_ls",
 		},
