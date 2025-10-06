@@ -166,3 +166,8 @@ alias lg="lazygit"
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 export EDITOR="nvim"
+
+export FLYCTL_INSTALL="/home/harry/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+bindkey -v
