@@ -77,22 +77,20 @@
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    aws
-    fast-syntax-highlighting
-    git
-    git-auto-fetch
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    # zsh-autocomplete
-    kitty
-    nvm
-    terraform
-)
+# plugins=(
+#     aws
+#     fast-syntax-highlighting
+#     git
+#     git-auto-fetch
+#     zsh-autosuggestions
+#     zsh-syntax-highlighting
+#     # zsh-autocomplete
+#     kitty
+#     nvm
+#     terraform
+# )
 
-source $ZSH/oh-my-zsh.sh
-
-
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -120,7 +118,14 @@ alias gsd='git switch dev && git pull'
 alias gsm="git switch main && git pull"
 alias gmd="git switch dev && git pull --ff-only && git switch - && git merge dev"
 
-# Initialize zsh completions (added by deno install script)
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+bindkey "^[[3~" delete-char
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 autoload -Uz compinit
 compinit
 
@@ -128,10 +133,15 @@ alias gdiff="git diff  --shortstat"
 alias code="code-insiders"
 eval "$(starship init zsh)"
 
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+source ~/antigen.zsh
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
+
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
-
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias lg="lazygit"
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
