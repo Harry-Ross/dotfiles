@@ -1,7 +1,3 @@
-PROMPT='[%T] %n ~ %d %%'
-
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/Users/reachout.user/completions:"* ]]; then export FPATH="/Users/reachout.user/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -106,13 +102,6 @@ eval "$(zoxide init zsh)"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -151,41 +140,6 @@ path+=('/Users/reachout.user/Library/Python/3.9/bin')
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 . "/Users/reachout.user/.deno/env"
 
-source ~/completion-for-pnpm.bash
-export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
-
-export NODE_EXTRA_CA_CERTS="/Users/reachout.user/Downloads/nscacert.pem"
-export SSL_CERT_FILE="/Users/reachout.user/Downloads/nscacert.pem"
-export AWS_CA_BUNDLE="/Users/reachout.user/Downloads/nscacert.pem"
-export REQUESTS_CA_BUNDLE="/Users/reachout.user/Downloads/nscacert.pem"
-export GRPC_DEFAULT_SSL_ROOTS_FILE_PATH="/Users/reachout.user/Downloads/nscacert.pem"
-
-export DENO_TLS_CA_STORE="system"
-export DENO_CERT="/Users/reachout.user/Downloads/nscacert.pem"
-
-export SAM_CLI_TELEMETRY=0
-
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
@@ -195,12 +149,8 @@ compinit
 # Created by `pipx` on 2025-03-03 05:54:26
 export PATH="$PATH:/Users/reachout.user/.local/bin"
 
-export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-# Added by Windsurf
-export PATH="/Users/reachout.user/.codeium/windsurf/bin:$PATH"
 
 alias lg="lazygit"
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
@@ -208,8 +158,4 @@ alias lg="lazygit"
 export EDITOR="nvim"
 bindkey -v
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/reachout.user/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/reachout.user/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/Users/reachout.user/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/reachout.user/google-cloud-sdk/completion.zsh.inc'; fi
+source ~/.zshrc.local
