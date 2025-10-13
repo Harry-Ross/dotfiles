@@ -1,9 +1,10 @@
 return {
 	"stevearc/conform.nvim",
 	opts = {
+		log_level = vim.log.levels.DEBUG,
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "isort", "black" },
+			python = { "ruff_fix", "ruff_format", "ruff_organize_imports", "isort", "black" },
 			astro = { "prettier", stop_after_first = true },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			typescript = { "prettierd", "prettier", stop_after_first = true },
@@ -13,6 +14,7 @@ return {
 			html = { "prettierd", "prettier", stop_after_first = true },
 			css = { "prettierd", "prettier", stop_after_first = true },
 			cpp = { "clang-format", stop_after_first = true },
+			yaml = { "prettierd", "prettier", stop_after_first = true },
 		},
 	},
 }
