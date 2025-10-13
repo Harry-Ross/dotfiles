@@ -7,6 +7,7 @@ return {
 			"cmake",
 			"eslint",
 			"jsonls",
+			"terraformls",
 			"ts_ls",
 			"ruff",
 		},

@@ -7,7 +7,7 @@ vim.lsp.enable("jsonls")
 vim.lsp.enable("prettier")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("ts_ls")
-vim.lsp.enable("terraform_ls")
+vim.lsp.enable("terraformls")
 
 vim.diagnostic.config({
 	virtual_text = true,
