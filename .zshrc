@@ -126,6 +126,10 @@ bindkey "^[[3~" delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '~/.zshrc'
+
 autoload -Uz compinit
 compinit
 
@@ -133,7 +137,7 @@ alias gdiff="git diff  --shortstat"
 alias code="code-insiders"
 eval "$(starship init zsh)"
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 source ~/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
