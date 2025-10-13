@@ -135,5 +135,7 @@ alias lg="lazygit"
 export EDITOR="nvim"
 bindkey -v
 
+source ~/.zshrc.local
+
 
 
