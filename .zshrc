@@ -1,14 +1,25 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+PROMPT='[%T] %n ~ %d %%'
 
-# Path to your oh-my-zsh installation.
-# export ZSH="$HOME/.oh-my-zsh"
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/reachout.user/completions:"* ]]; then export FPATH="/Users/reachout.user/completions:$FPATH"; fi
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,9 +81,23 @@
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git)
+plugins=(
+    aws
+    fast-syntax-highlighting
+    git
+    git-auto-fetch
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    # zsh-autocomplete
+    kitty
+    nvm
+    terraform
+)
 
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
+
+source <(fzf --zsh)
+eval "$(zoxide init zsh)"
 
 # User configuration
 
@@ -91,83 +116,100 @@
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias lg='lazygit'
+alias gsd='git switch dev && git pull'
+alias gsm="git switch main && git pull"
+alias gmd="git switch dev && git pull --ff-only && git switch - && git merge dev"
 
-# Your zID (change this)
-_SSHFS_ZID=z5420475
-# Your desired mountpoint for your CSE home directory
-_SSHFS_CSE_MOUNT="$HOME/cse"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias csem="sshfs -o idmap=user -C ${_SSHFS_ZID}@login${_SSHFS_ZID: -1}.cse.unsw.edu.au: ${_SSHFS_CSE_MOUNT}"
-alias cseu="fusermount -zu ${_SSHFS_CSE_MOUNT}"
+# pnpm
+export PNPM_HOME="/Users/reachout.user/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
-function cse() {
-    # determine where we are relative to the mountpoint (thanks @ralismark)
-    local rel=${PWD##${_SSHFS_CSE_MOUNT}}
+path+=('~/go/bin')
+path+=('/Users/reachout.user/Library/Python/3.9/bin')
 
-    if [ -z "$1" ]; then
-        # if we don't have arguments, we give the user a shell on the remote cse machine.
-        if [ "$PWD" = "$rel" ]; then
-            # in the case that we're not in our mountpoint, provide a shell in their home directory.
-            ssh "${_SSHFS_ZID}@login${_SSHFS_ZID: -1}.cse.unsw.edu.au"
-        else
-            # if within the mountpoint, cd to the equivalent dir on the remote before providing a shell (thanks @ralismark)
-            ssh "${_SSHFS_ZID}@login${_SSHFS_ZID: -1}.cse.unsw.edu.au" -t "cd $(printf "%q" "./$rel"); exec \$SHELL -l"
-        fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+. "/Users/reachout.user/.deno/env"
+
+source ~/completion-for-pnpm.bash
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
+export NODE_EXTRA_CA_CERTS="/Users/reachout.user/Downloads/nscacert.pem"
+export SSL_CERT_FILE="/Users/reachout.user/Downloads/nscacert.pem"
+export AWS_CA_BUNDLE="/Users/reachout.user/Downloads/nscacert.pem"
+export REQUESTS_CA_BUNDLE="/Users/reachout.user/Downloads/nscacert.pem"
+export GRPC_DEFAULT_SSL_ROOTS_FILE_PATH="/Users/reachout.user/Downloads/nscacert.pem"
+
+export DENO_TLS_CA_STORE="system"
+export DENO_CERT="/Users/reachout.user/Downloads/nscacert.pem"
+
+export SAM_CLI_TELEMETRY=0
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
     else
-        # if we have arguments, we have a command to execute.
-        if [ "$PWD" = "$rel" ]; then
-            # in the case that we're not in our mountpoint, we'll execute in the home directory.
-            ssh -qt "${_SSHFS_ZID}@login${_SSHFS_ZID: -1}.cse.unsw.edu.au" "$@"
-        else
-            # if within the mountpoint, cd to the equivalent dir on the remote before executing (thanks @ralismark)
-            ssh "${_SSHFS_ZID}@login${_SSHFS_ZID: -1}.cse.unsw.edu.au" -qt "cd $(printf "%q" "./$rel") && $(printf "%q " "$@")"
-        fi
+        export PATH="/opt/anaconda3/bin:$PATH"
     fi
-}
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-bindkey -e
-bindkey "^[[3~" delete-char
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/harry/.zshrc'
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
+# Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
+. "$HOME/.local/bin/env"
 
-alias gdiff="git diff  --shortstat"
-alias code="code-insiders"
-eval "$(starship init zsh)"
+# Created by `pipx` on 2025-03-03 05:54:26
+export PATH="$PATH:/Users/reachout.user/.local/bin"
 
-alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache
 
-source /usr/share/zsh/share/antigen.zsh
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-eval "$(zoxide init zsh)"
+# Added by Windsurf
+export PATH="/Users/reachout.user/.codeium/windsurf/bin:$PATH"
 
 alias lg="lazygit"
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 export EDITOR="nvim"
-
-export FLYCTL_INSTALL="/home/harry/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
 bindkey -v
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/reachout.user/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/reachout.user/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+# if [ -f '/Users/reachout.user/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/reachout.user/google-cloud-sdk/completion.zsh.inc'; fi
