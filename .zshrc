@@ -120,36 +120,13 @@ alias gsd='git switch dev && git pull'
 alias gsm="git switch main && git pull"
 alias gmd="git switch dev && git pull --ff-only && git switch - && git merge dev"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# pnpm
-export PNPM_HOME="/Users/reachout.user/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-path+=('~/go/bin')
-path+=('/Users/reachout.user/Library/Python/3.9/bin')
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-. "/Users/reachout.user/.deno/env"
-
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
 
-. "$HOME/.local/bin/env"
-
 alias gdiff="git diff  --shortstat"
 alias code="code-insiders"
 eval "$(starship init zsh)"
-
-
 
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
