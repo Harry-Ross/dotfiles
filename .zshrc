@@ -149,7 +149,6 @@ compinit
 # Created by `pipx` on 2025-03-03 05:54:26
 export PATH="$PATH:/Users/reachout.user/.local/bin"
 
-
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias lg="lazygit"
