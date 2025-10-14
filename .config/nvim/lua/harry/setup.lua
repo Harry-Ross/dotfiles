@@ -39,6 +39,8 @@ vim.keymap.set("n", "<leader>i", function()
 	vim.lsp.buf.implementation()
 end, { desc = "Go to implementation" })
 
+vim.keymap.set("n", "<C-w>v", ":vsplit<CR>", { desc = "Vertical split" })
+
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)

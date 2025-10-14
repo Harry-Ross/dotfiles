@@ -5,6 +5,7 @@ return {
 			"astro",
 			"clangd",
 			"cmake",
+			"docker_language_server",
 			"eslint",
 			"jsonls",
 			"terraformls",
