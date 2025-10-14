@@ -114,6 +114,8 @@
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias lg='lazygit'
+alias tf='terraform'
+
 alias gsd='git switch dev && git pull'
 alias gsm="git switch main && git pull"
 alias gmd="git switch dev && git pull --ff-only && git switch - && git merge dev"
