@@ -22,6 +22,9 @@ $python\
 [](fg:color_blue bg:color_bg3)\
 $docker_context\
 $conda\
+$aws\
+$terraform\
+$gcloud\
 [](fg:color_bg3 bg:color_bg1)\
 $time\
 [ ](fg:color_bg1)\
@@ -75,7 +78,7 @@ format = '[ $user ]($style)'
 [directory]
 style = "fg:color_fg0 bg:color_yellow"
 format = "[ $path ]($style)"
-truncation_length = 3
+truncation_length = 10
 truncation_symbol = "…/"
 
 [directory.substitutions]
@@ -84,6 +87,7 @@ truncation_symbol = "…/"
 "Music" = "󰝚 "
 "Pictures" = " "
 "Developer" = "󰲋 "
+"code" = "󰲋 "
 
 [git_branch]
 symbol = ""
@@ -93,7 +97,6 @@ format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
 [git_status]
 style = "bg:color_aqua"
 format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
-
 
 [aws]
 format = 'on [$symbol($profile )(\($region\) )]($style)'
