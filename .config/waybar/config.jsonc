@@ -1,1 +1,98 @@
-/home/harry/.config/waybar/themes/[TOP] Default
+{
+  "layer": "top",
+  //"mode": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "position": "top",
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock", "hyprland/window"],
+  "modules-right": ["tray", "pulseaudio", "custom/power"],
+
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "separate-outputs": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+    },
+    // "format": "<sub>{icon}</sub>\n{windows}",
+    "format": "{icon} {windows}",
+    "window-rewrite": {
+      "code": "󰨞",
+      "discord": "󰙯",
+      "firefox": "",
+      "notion": "",
+      "kitty": "",
+      "spotify": "",
+      "steam": "",
+      "zen": "",
+    },
+  },
+  "hyprland/window": {
+    "format": "  {}",
+    "separate-outputs": true,
+    "max-length": 64,
+    "rewrite": {
+      "(.*)zsh": "> [$1]",
+      "(.*)fish": "> [$1]",
+      "(.*)nvim(.*)": "$2 - Neovim ",
+      "(.*)Mozilla Firefox": "Firefox 󰈹",
+      "(.*)Google Chrome": "Chrome ",
+      "(.*)Visual Studio Code - Insiders": "Code 󰨞",
+      "(.*)Dolphin": "$1 󰉋",
+      "(.*)Spotify": "Spotify 󰓇",
+      "(.*)Steam": "Steam 󰓓",
+      "(.*)Zen Browser": "Zen 󰈹",
+    },
+  },
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ifname} ",
+    "format-disconnected": "",
+    "max-length": 50,
+    "on-click": "kitty -e 'nmtui'",
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
+    },
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10,
+  },
+  "clock": {
+    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    // "format-alt": "{:%Y-%m-%d}"
+    "on-click": "gnome-calendar",
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon} ",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "0% {icon} ",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
+    },
+    "on-click": "pavucontrol",
+  },
+  "custom/power": {
+    "format": " ",
+    "on-click": "wlogout",
+  },
+}
