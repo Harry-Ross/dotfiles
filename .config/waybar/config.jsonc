@@ -11,16 +11,8 @@
 
   "hyprland/workspaces": {
     "active-only": false,
-    "all-outputs": true,
+    "all-outputs": false,
     "separate-outputs": true,
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-    },
-    // "format": "<sub>{icon}</sub>\n{windows}",
     "format": "{icon} {windows}",
     "window-rewrite": {
       "code": "󰨞",
@@ -40,7 +32,7 @@
     "rewrite": {
       "(.*)zsh": "> [$1]",
       "(.*)fish": "> [$1]",
-      "(.*)nvim(.*)": "$2 - Neovim ",
+      "(.*)nvim(.*)": "Neovim ",
       "(.*)Mozilla Firefox": "Firefox 󰈹",
       "(.*)Google Chrome": "Chrome ",
       "(.*)Visual Studio Code - Insiders": "Code 󰨞",
@@ -57,13 +49,6 @@
     "max-length": 50,
     "on-click": "kitty -e 'nmtui'",
   },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": "",
-    },
-  },
   "tray": {
     "icon-size": 15,
     "spacing": 10,
@@ -71,7 +56,8 @@
   "clock": {
     // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     // "format-alt": "{:%Y-%m-%d}"
-    "on-click": "gnome-calendar",
+    "format": "{:%H:%M}",
+    "format-alt": " {:%H:%M    %d/%m}",
   },
   "pulseaudio": {
     "format": "{volume}% {icon} ",
