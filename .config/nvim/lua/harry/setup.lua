@@ -29,6 +29,19 @@ vim.opt.relativenumber = true
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+vim.api.nvim_set_keymap(
+	"n",
+	"gD",
+	"<cmd>lua vim.lsp.buf.declaration()<CR>",
+	{ desc = "Declaration", noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"gd",
+	"<cmd>lua vim.lsp.buf.definition()<CR>",
+	{ desc = "Definition", noremap = true, silent = true }
+)
+
 require("harry.lsp")
 
 vim.keymap.set("n", "<leader>r", function()
@@ -38,8 +51,6 @@ end, { desc = "Find references" })
 vim.keymap.set("n", "<leader>i", function()
 	vim.lsp.buf.implementation()
 end, { desc = "Go to implementation" })
-
-vim.keymap.set("n", "<C-w>v", ":vsplit<CR>", { desc = "Vertical split" })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
