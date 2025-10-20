@@ -42,6 +42,13 @@ vim.api.nvim_set_keymap(
 	{ desc = "Definition", noremap = true, silent = true }
 )
 
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>lr",
+	"<cmd>:LspRestart<CR>",
+	{ desc = "Definition", noremap = true, silent = true }
+)
+
 require("harry.lsp")
 
 vim.keymap.set("n", "<leader>r", function()
