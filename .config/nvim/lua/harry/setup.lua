@@ -15,6 +15,7 @@ vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Teles
 vim.keymap.set("n", "<leader>ft", builtin.lsp_type_definitions, { desc = "Telescope type definition" })
 vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "Telescope current bu" })
 vim.keymap.set("n", "<leader>fr", builtin.registers, { desc = "Telescope registers" })
+vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Telescope marks" })
 
 vim.keymap.set("n", "<leader>ft", builtin.treesitter, { desc = "Telescope treesitter" })
 
