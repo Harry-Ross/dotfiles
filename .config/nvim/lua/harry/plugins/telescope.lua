@@ -14,4 +14,24 @@ return {
 	-- tag = "0.1.8",
 	-- or                              , branch = '0.1.x',
 	dependencies = { "nvim-lua/plenary.nvim" },
+	config = function()
+		require("telescope").load_extension("fzf")
+
+		require("telescope").setup({
+			pickers = {
+				buffers = {
+					ignore_current_buffer = true,
+					sort_lastused = true,
+					mappings = {
+						i = {
+							["<c-d>"] = "delete_buffer",
+						},
+						n = {
+							["d"] = "delete_buffer",
+						},
+					},
+				},
+			},
+		})
+	end,
 }
