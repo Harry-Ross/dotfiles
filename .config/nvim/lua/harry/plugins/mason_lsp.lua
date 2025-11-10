@@ -4,6 +4,7 @@ return {
 		local servers = require("harry.lsp.servers")
 		return {
 			ensure_installed = servers,
+			automatic_enable = false,
 		}
 	end,
 	dependencies = {
