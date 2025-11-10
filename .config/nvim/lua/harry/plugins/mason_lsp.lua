@@ -1,18 +1,11 @@
 return {
 	"mason-org/mason-lspconfig.nvim",
-	opts = {
-		ensure_installed = {
-			"astro",
-			"clangd",
-			"cmake",
-			"docker_language_server",
-			"eslint",
-			"jsonls",
-			"terraformls",
-			"ts_ls",
-			"ruff",
-		},
-	},
+	opts = function()
+		local servers = require("harry.lsp.servers")
+		return {
+			ensure_installed = servers,
+		}
+	end,
 	dependencies = {
 		{ "mason-org/mason.nvim", opts = {} },
 		"neovim/nvim-lspconfig",
