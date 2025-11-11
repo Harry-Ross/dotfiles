@@ -1,3 +1,11 @@
+vim.lsp.config("basedpyright", {
+	settings = {
+		basedpyright = {
+			typeCheckingMode = "off",
+		},
+	},
+})
+
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {

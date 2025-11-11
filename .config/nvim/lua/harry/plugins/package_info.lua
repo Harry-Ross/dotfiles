@@ -1,8 +1,13 @@
 return {
 	"vuki656/package-info.nvim",
 	dependencies = { "MunifTanjim/nui.nvim" },
+	ft = "json",
+	lazy = true,
+	event = { "BufRead package.json", "BufNewFile package.json" },
 	config = function()
-		require("package-info").setup()
+		require("package-info").setup({
+			package_manager = "pnpm",
+		})
 
 		-- Show dependency versions
 		vim.keymap.set(
