@@ -28,6 +28,8 @@ vim.opt.relativenumber = true
 
 vim.o.mouse = "a"
 
+vim.o.winborder = "rounded"
+
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 vim.api.nvim_set_keymap(
