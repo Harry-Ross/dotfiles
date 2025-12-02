@@ -136,7 +136,6 @@ autoload -Uz compinit
 compinit
 
 alias gdiff="git diff  --shortstat"
-alias code="code-insiders"
 eval "$(starship init zsh)"
 
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -156,3 +155,14 @@ export EDITOR="nvim"
 bindkey -v
 
 source ~/.zshrc.local
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# fnm
+FNM_PATH="/home/harry/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
