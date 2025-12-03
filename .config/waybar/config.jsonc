@@ -7,7 +7,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock", "hyprland/window"],
-  "modules-right": ["network", "tray", "pulseaudio", "custom/power"],
+  "modules-right": ["network", "tray", "pulseaudio", "backlight", "battery", "custom/power"],
 
   "hyprland/workspaces": {
     "active-only": false,
@@ -76,4 +76,12 @@
     "format": " ",
     "on-click": "wlogout",
   },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""]
+  }
 }

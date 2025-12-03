@@ -156,3 +156,10 @@ export EDITOR="nvim"
 bindkey -v
 
 source ~/.zshrc.local
+
+# fnm
+FNM_PATH="/home/harry/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
