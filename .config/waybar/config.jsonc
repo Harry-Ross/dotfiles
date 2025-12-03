@@ -7,7 +7,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock", "hyprland/window"],
-  "modules-right": ["network", "tray", "pulseaudio", "backlight", "battery", "custom/power"],
+  "modules-right": ["network", "tray", "pulseaudio", "backlight", "temperature", "battery", "custom/power"],
 
   "hyprland/workspaces": {
     "active-only": false,
@@ -23,8 +23,8 @@
       "spotify": "",
       "steam": "",
       "zen": "",
-      "zotero": "󰬇",
-    },
+      "zotero": "󰬇"
+    }
   },
   "hyprland/window": {
     "format": "  {}",
@@ -40,19 +40,19 @@
       "(.*)Dolphin": "$1 󰉋",
       "(.*)Spotify": "Spotify 󰓇",
       "(.*)Steam": "Steam 󰓓",
-      "(.*)Zen Browser": "Zen 󰈹",
-    },
+      "(.*)Zen Browser": "Zen 󰈹"
+    }
   },
   "network": {
     "format-wifi": "{essid} ({signalStrength}%) ",
     "format-ethernet": "󰛳",
     "format-disconnected": "󰅛",
     "max-length": 50,
-    "on-click": "kitty -e 'nmtui'",
+    "on-click": "kitty -e 'nmtui'"
   },
   "clock": {
     "format": "{:%H:%M}",
-    "format-alt": " {:%H:%M    %d/%m}",
+    "format-alt": " {:%H:%M    %d/%m}"
   },
   "pulseaudio": {
     "format": "{volume}% {icon} ",
@@ -68,9 +68,14 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""],
+      "default": ["", "", ""]
     },
-    "on-click": "pavucontrol",
+    "on-click": "pavucontrol"
+  },
+  "temperature": {
+    "format": "{temperatureC}°C ",
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input",
+    "interval": 10
   },
   "custom/power": {
     "format": " ",

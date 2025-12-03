@@ -136,7 +136,6 @@ autoload -Uz compinit
 compinit
 
 alias gdiff="git diff  --shortstat"
-alias code="code-insiders"
 eval "$(starship init zsh)"
 
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
