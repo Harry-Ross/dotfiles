@@ -120,6 +120,37 @@ alias gsd='git switch dev && git pull'
 alias gsm="git switch main && git pull"
 alias gmd="git switch dev && git pull --ff-only && git switch - && git merge dev"
 
+# git worktrees
+gwt() {
+  case "$1" in
+    add|a)
+      if [ -z "$2" ]; then
+        echo "Usage: gwt add <branch-name>"
+        return 1
+      fi
+      git worktree add -b "$2" "../$2"
+      ;;
+    remove|rm|r)
+      if [ -z "$2" ]; then
+        echo "Usage: gwt remove <branch-name>"
+        return 1
+      fi
+      git worktree remove "../$2"
+      ;;
+    list|ls|l)
+      git worktree list
+      ;;
+    *)
+      echo "Usage: gwt {add|remove|list} [branch-name]"
+      echo "  add    (a)  - Create and add a new worktree"
+      echo "  remove (rm) - Remove a worktree"
+      echo "  list   (ls) - List all worktrees"
+      return 1
+      ;;
+  esac
+}
+
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
