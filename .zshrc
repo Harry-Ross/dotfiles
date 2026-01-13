@@ -182,16 +182,10 @@ eval "$(zoxide init zsh)"
 alias lg="lazygit"
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
-alias lazypodman="DOCKER_HOST=unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}') lazydocker"
-
 export EDITOR="nvim"
 bindkey -v
 
 source ~/.zshrc.local
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # fnm
 FNM_PATH="/home/harry/.local/share/fnm"
@@ -199,4 +193,4 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
 fi
-
+eval "$(zellij setup --generate-auto-start zsh)"
