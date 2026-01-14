@@ -5,7 +5,7 @@ command = { program = "code", args = [ "--goto" ] }
 mouse = { enabled = true }
 
 [font]
-normal = { family="MesloLGS Nerd Font" }
+normal = { family="MesloLGM Nerd Font" }
 
 [general]
 import = [

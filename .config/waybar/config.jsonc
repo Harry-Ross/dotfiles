@@ -7,7 +7,16 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock", "hyprland/window"],
-  "modules-right": ["bluetooth", "network", "tray", "pulseaudio", "backlight", "temperature", "battery", "custom/power"],
+  "modules-right": [
+    "bluetooth",
+    "network",
+    "tray",
+    "pulseaudio",
+    "backlight",
+    "temperature",
+    "battery",
+    "custom/power",
+  ],
 
   "hyprland/workspaces": {
     "active-only": false,
@@ -24,8 +33,8 @@
       "spotify": "",
       "steam": "",
       "zen": "",
-      "zotero": "󰬇"
-    }
+      "zotero": "󰬇",
+    },
   },
   "hyprland/window": {
     "format": "  {}",
@@ -41,19 +50,19 @@
       "(.*)Dolphin": "$1 󰉋",
       "(.*)Spotify": "Spotify 󰓇",
       "(.*)Steam": "Steam 󰓓",
-      "(.*)Zen Browser": "Zen 󰈹"
-    }
+      "(.*)Zen Browser": "Zen 󰈹",
+    },
   },
   "network": {
     "format-wifi": "{signalStrength}% ",
     "format-ethernet": "󰛳",
     "format-disconnected": "󰅛",
     "max-length": 50,
-    "on-click": "kitty -e 'nmtui'"
+    "on-click": "kitty -e 'nmtui'",
   },
   "clock": {
     "format": "{:%H:%M}",
-    "format-alt": " {:%H:%M    %d/%m}"
+    "format-alt": " {:%H:%M    %d/%m}",
   },
   "pulseaudio": {
     "format": "{volume}% {icon} ",
@@ -69,14 +78,14 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": ["", "", ""],
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
   "temperature": {
     "format": "{temperatureC}°C ",
     "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input",
-    "interval": 10
+    "interval": 10,
   },
   "custom/power": {
     "format": " ",
@@ -88,17 +97,18 @@
   },
   "backlight": {
     "format": "{percent}% {icon}",
-    "format-icons": ["", ""]
+    "format-icons": ["", ""],
   },
   "bluetooth": {
     "on-click": "alacritty -e bluetui",
     "format": " {status}",
     "format-connected": " {device_alias}",
     "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "format-no-controller": "",
     // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-  }
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+  },
 }
