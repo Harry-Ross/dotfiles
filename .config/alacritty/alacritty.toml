@@ -5,7 +5,12 @@ command = { program = "code", args = [ "--goto" ] }
 mouse = { enabled = true }
 
 [font]
-normal = { family="MesloLGS Nerd Font" }
+normal = { family="MesloLGM Nerd Font" }
+offset = { x = 1, y = 0 }
+size = 14
+
+[window]
+option_as_alt = "Both"
 
 [general]
 import = [
