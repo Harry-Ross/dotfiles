@@ -8,6 +8,7 @@ return {
 	"jsonls",
 	"lua_ls",
 	"ruff",
-	"ts_ls",
+	-- replaced with plugins/typescript-tools.lua
+	-- "ts_ls",
 	"terraformls",
 }
