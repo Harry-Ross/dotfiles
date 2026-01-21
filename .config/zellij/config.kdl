@@ -467,7 +467,7 @@ theme "gruvbox-dark"
 // - false
 // Default: false
 // 
-// web_server false
+web_server false
 // Whether to allow sessions started in the terminal to be shared through a local web server, assuming one is
 // running (see the `web_server` option for more details).
 // (Requires restart)
