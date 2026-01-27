@@ -83,9 +83,6 @@ window#waybar {
 #temperature.critical {
   color: #cc3436;
 }
-#window {
-  padding-right: 10px;
-}
 /*-----Colors----*/
 /*
  *rgba(0,85,102,1),#005566 --> Indigo(dye)
