@@ -28,6 +28,8 @@ vim.lsp.config("lua_ls", {
 local servers = require("harry.lsp.servers")
 vim.lsp.enable(servers)
 
+vim.lsp.inlay_hint.enable()
+
 vim.diagnostic.config({
 	virtual_text = true,
 	underline = true,

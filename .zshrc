@@ -120,6 +120,8 @@ alias gsd='git switch dev && git pull'
 alias gsm="git switch main && git pull"
 alias gmd="git switch dev && git pull --ff-only && git switch - && git merge dev"
 
+alias ls="ls -lahG"
+
 # git worktrees
 gwt() {
   case "$1" in
@@ -199,5 +201,6 @@ eval "$(zellij setup --generate-auto-start zsh)"
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux
 # fi
+
 
 
