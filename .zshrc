@@ -120,6 +120,8 @@ alias gsd='git switch dev && git pull'
 alias gsm="git switch main && git pull"
 alias gmd="git switch dev && git pull --ff-only && git switch - && git merge dev"
 
+alias ls="ls -lahG"
+
 # git worktrees
 gwt() {
   case "$1" in
@@ -174,6 +176,7 @@ alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 source ~/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle jeffreytse/zsh-vi-mode
 antigen apply
 
 source <(fzf --zsh)
@@ -198,3 +201,6 @@ eval "$(zellij setup --generate-auto-start zsh)"
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux
 # fi
+
+
+
