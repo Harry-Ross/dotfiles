@@ -120,6 +120,8 @@ alias gsd='git switch dev && git pull'
 alias gsm="git switch main && git pull"
 alias gmd="git switch dev && git pull --ff-only && git switch - && git merge dev"
 
+alias ls="ls -lahG"
+
 # git worktrees
 gwt() {
   case "$1" in
@@ -174,6 +176,7 @@ alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 source ~/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle jeffreytse/zsh-vi-mode
 antigen apply
 
 source <(fzf --zsh)
@@ -189,10 +192,6 @@ bindkey -v
 
 source ~/.zshrc.local
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # fnm
 FNM_PATH="/home/harry/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
@@ -200,3 +199,7 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
+eval "$(zellij setup --generate-auto-start zsh)"
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#   exec tmux
+# fi

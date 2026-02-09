@@ -8,6 +8,6 @@ return {
 	"jsonls",
 	"lua_ls",
 	"ruff",
-	"ts_ls",
 	"terraformls",
+	"tsgo",
 }

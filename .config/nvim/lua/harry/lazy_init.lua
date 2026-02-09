@@ -25,5 +25,5 @@ require("lazy").setup({
 	spec = {
 		{ import = "harry.plugins" },
 	},
-	change_detection = { notify = false },
+	change_detection = { enabled = true, notify = true },
 })
