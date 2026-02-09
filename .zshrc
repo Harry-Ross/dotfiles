@@ -182,7 +182,7 @@ eval "$(zoxide init zsh)"
 alias lg="lazygit"
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
-alias lazypodman="DOCKER_HOST=unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}') lazydocker"
+alias lazypodman="DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock lazydocker"
 
 export EDITOR="nvim"
 bindkey -v

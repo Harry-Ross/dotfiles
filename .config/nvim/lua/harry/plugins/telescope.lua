@@ -10,15 +10,7 @@ return {
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
-	},
-	-- tag = "0.1.8",
-	-- or                              , branch = '0.1.x',
-	dependencies = { "nvim-lua/plenary.nvim" },
-	config = function()
-		require("telescope").load_extension("fzf")
-
-		require("telescope").setup({
-			pickers = {
+    pickers = {
 				buffers = {
 					ignore_current_buffer = true,
 					sort_lastused = true,
@@ -32,6 +24,12 @@ return {
 					},
 				},
 			},
-		})
+
+	},
+	-- tag = "0.1.8",
+	-- or                              , branch = '0.1.x',
+	dependencies = { "nvim-lua/plenary.nvim" },
+	config = function()
+		require("telescope").load_extension("fzf")
 	end,
 }
