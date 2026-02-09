@@ -9,5 +9,5 @@ return {
 	"lua_ls",
 	"ruff",
 	"terraformls",
-	"vtsls",
+	"tsgo",
 }
