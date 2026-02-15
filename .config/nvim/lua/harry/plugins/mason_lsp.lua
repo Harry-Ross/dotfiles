@@ -1,9 +1,22 @@
 return {
 	"mason-org/mason-lspconfig.nvim",
 	opts = function()
-		local servers = require("harry.lsp.servers")
 		return {
-			ensure_installed = servers,
+			ensure_installed = {
+	"astro",
+	"basedpyright",
+  "biome",
+	"clangd",
+	"cmake",
+  "denols",
+	"eslint",
+	"docker_language_server",
+	"jsonls",
+	"lua_ls",
+	"ruff",
+	"terraformls",
+        -- "vtsls"
+},
 			automatic_enable = false,
 		}
 	end,
