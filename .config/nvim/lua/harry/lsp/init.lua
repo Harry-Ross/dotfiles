@@ -25,10 +25,25 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
+vim.lsp.config("roslyn", {
+    settings = {
+        ["csharp|inlay_hints"] = {
+            csharp_enable_inlay_hints_for_implicit_object_creation = true,
+            csharp_enable_inlay_hints_for_implicit_variable_types = true,
+        },
+        ["csharp|code_lens"] = {
+            dotnet_enable_references_code_lens = true,
+        },
+    },
+})
+
 local servers = require("harry.lsp.servers")
 vim.lsp.enable(servers)
 
 vim.lsp.inlay_hint.enable()
+
+vim.lsp.log.set_level 'trace'
+require('vim.lsp.log').set_format_func(vim.inspect)
 
 vim.diagnostic.config({
 	virtual_text = true,

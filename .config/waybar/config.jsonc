@@ -89,7 +89,7 @@
   },
   "custom/power": {
     "format": " ",
-    "on-click": "wlogout",
+    "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh",
   },
   "battery": {
     "format": "{capacity}% {icon}",
