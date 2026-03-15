@@ -7,6 +7,7 @@ return {
 			lua = { "stylua" },
 			python = { "ruff_fix", "ruff_format", "ruff_organize_imports", "isort", "black" },
 			astro = { "prettier", stop_after_first = true },
+      cs = {"csharpier", stop_after_first = true },
 			javascript = javascript_fmts,
 			typescript = javascript_fmts,
 			typescriptreact = javascript_fmts,

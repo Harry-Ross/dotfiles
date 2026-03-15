@@ -7,7 +7,6 @@ return {
 	"basedpyright",
   "biome",
 	"clangd",
-	"cmake",
   "denols",
 	"eslint",
 	"docker_language_server",
