@@ -1,15 +1,17 @@
 return {
 	"astro",
 	"basedpyright",
-  "biome",
-  "denols",
+	"biome",
+	"denols",
 	"eslint",
 	"docker_language_server",
 	"jsonls",
 	"lua_ls",
-  "roslyn",
+	"roslyn",
 	"ruff",
 	"terraformls",
   "tailwindcss"
+	"tflint",
+	"tsgo",
 	-- "vtsls",
 }
