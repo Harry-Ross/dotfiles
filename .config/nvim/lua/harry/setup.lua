@@ -51,6 +51,14 @@ vim.api.nvim_set_keymap(
 	"<cmd>:LspRestart<CR>",
 	{ desc = "LSP Restart", noremap = true, silent = true }
 )
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>lc",
+	"<cmd>lua vim.lsp.buf.code_action()<CR>",
+	{ desc = "LSP Code Action", noremap = true, silent = true }
+)
+
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')

@@ -10,5 +10,6 @@ return {
   "roslyn",
 	"ruff",
 	"terraformls",
+  "tailwindcss"
 	-- "vtsls",
 }
