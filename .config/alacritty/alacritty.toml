@@ -5,7 +5,7 @@ command = { program = "code", args = [ "--goto" ] }
 mouse = { enabled = true }
 
 [font]
-normal = { family="BlexMono Nerd Font Propo"}
+normal = { family="BlexMono Nerd Font Medium"}
 offset = { x = 1, y = 0 }
 size = 11
 
