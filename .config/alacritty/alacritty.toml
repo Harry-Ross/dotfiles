@@ -17,7 +17,6 @@ import = [
   "~/.config/alacritty/hardhacker.toml"
 ]
 
-
 [[keyboard.bindings]]
 key = "Return"
 mods = "Shift"
