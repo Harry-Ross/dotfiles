@@ -56,8 +56,8 @@ vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
-vim.keymap.set("n", "<leader>y", '"+y', { desc = "Yank to clipboard" })
-vim.keymap.set("n", "<leader>p", '"+p', { desc = "Put to clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Put to clipboard" })
 
 require("harry.lsp")
 
