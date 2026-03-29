@@ -10,7 +10,8 @@ return {
 	"roslyn",
 	"ruff",
 	"terraformls",
+  "tailwindcss",
 	"tflint",
-	"tsgo",
+	"tsgo"
 	-- "vtsls",
 }

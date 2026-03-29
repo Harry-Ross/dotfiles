@@ -1,4 +1,4 @@
-local javascript_fmts = { "prettierd", "prettier", "biome", stop_after_first = true }
+local javascript_fmts = { "prettierd", "biome", "biome-check", "biome-organize-imports", stop_after_first = false }
 
 return {
 	"stevearc/conform.nvim",

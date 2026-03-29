@@ -14,6 +14,7 @@ return {
 	"lua_ls",
 	"ruff",
 	"terraformls",
+  "tailwindcss",
         -- "vtsls"
 },
 			automatic_enable = false,

@@ -5,9 +5,9 @@ command = { program = "code", args = [ "--goto" ] }
 mouse = { enabled = true }
 
 [font]
-normal = { family="BlexMono Nerd Font Propo"}
+normal = { family="BlexMono Nerd Font Medium"}
 offset = { x = 1, y = 0 }
-size = 14
+size = 11
 
 [window]
 option_as_alt = "Both"
@@ -17,3 +17,7 @@ import = [
   "~/.config/alacritty/hardhacker.toml"
 ]
 
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
