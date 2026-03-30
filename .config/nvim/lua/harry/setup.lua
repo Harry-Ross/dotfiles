@@ -148,3 +148,10 @@ vim.keymap.set(
 	"<cmd>GitLink! current_branch<cr>",
 	{ silent = true, noremap = true, desc = "Open current branch link" }
 )
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
