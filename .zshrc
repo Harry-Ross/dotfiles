@@ -154,8 +154,8 @@ gwt() {
 
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=100000
+SAVEHIST=100000
 bindkey -e
 bindkey "^[[3~" delete-char
 bindkey "^[[1;5C" forward-word
@@ -203,3 +203,7 @@ eval "$(zellij setup --generate-auto-start zsh)"
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux
 # fi
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export DENO_TLS_CA_STORE=system
+
