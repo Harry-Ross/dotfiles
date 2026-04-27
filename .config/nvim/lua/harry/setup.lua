@@ -150,7 +150,7 @@ vim.keymap.set(
 )
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "css", "json", "javascript", "typescript", "javascriptreact", "typescriptreact", "terraform" },
+	pattern = { "css", "markdown", "json", "javascript", "typescript", "javascriptreact", "typescriptreact", "terraform" },
 	callback = function()
 		vim.treesitter.start()
 	end,
