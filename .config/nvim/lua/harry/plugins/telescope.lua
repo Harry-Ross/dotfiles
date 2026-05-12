@@ -1,7 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	-- tag = "0.1.8",
-	branch = "master",
+  branch = "master",
 	extensions = {
 		fzf = {
 			fuzzy = true, -- false will only do exact matching
