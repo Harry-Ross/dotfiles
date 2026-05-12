@@ -40,7 +40,7 @@ vim.lsp.config("roslyn", {
 local servers = require("harry.lsp.servers")
 vim.lsp.enable(servers)
 
-vim.lsp.inlay_hint.enable()
+vim.lsp.inlay_hint.enable(false)
 
 vim.diagnostic.config({
 	virtual_text = true,

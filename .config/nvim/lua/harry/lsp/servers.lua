@@ -9,9 +9,9 @@ return {
 	"lua_ls",
 	"roslyn",
 	"ruff",
-	"terraformls",
-  "tailwindcss",
+	-- "terraformls",
+	"tailwindcss",
 	"tflint",
-	"tsgo"
+	"tsgo",
 	-- "vtsls",
 }
