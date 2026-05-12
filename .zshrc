@@ -142,6 +142,9 @@ gwt() {
     list|ls|l)
       git worktree list
       ;;
+    select|sel|s)
+      cd "$(git worktree list | fzf | awk '{print $1}')"
+      ;;
     *)
       echo "Usage: gwt {add|remove|list} [branch-name]"
       echo "  add    (a)  - Create and add a new worktree"
@@ -150,6 +153,10 @@ gwt() {
       return 1
       ;;
   esac
+}
+
+rgr() {
+  rg $1 --files-with-matches | xargs sed -i '' "s/$1/$2/g"
 }
 
 
@@ -193,13 +200,13 @@ bindkey -v
 source ~/.zshrc.local
 
 # fnm
-FNM_PATH="/home/harry/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
+eval "`fnm env --corepack-enabled`"
 
 eval "$(zellij setup --generate-auto-start zsh)"
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux
 # fi
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# Added by get-aspire-cli.sh
+export PATH="$HOME/.aspire/bin:$PATH"
