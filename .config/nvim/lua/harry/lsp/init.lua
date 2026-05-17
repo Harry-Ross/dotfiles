@@ -1,3 +1,13 @@
+function tableConcat(t1, t2)
+	-- loop over t2 items
+	for _, v in ipairs(t2) do
+		-- append entries to t1
+		table.insert(t1, v)
+	end
+	-- return merged table
+	return t1
+end
+
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
@@ -11,11 +21,12 @@ vim.lsp.config("lua_ls", {
 				globals = {
 					"vim",
 					"require",
+					"hl",
 				},
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = tableConcat(vim.api.nvim_get_runtime_file("", true), { "/usr/share/hypr/stubs" }),
 			},
 			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {
