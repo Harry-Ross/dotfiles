@@ -7,11 +7,12 @@ return {
 	"docker_language_server",
 	"jsonls",
 	"lua_ls",
+  "marksman",
 	"roslyn",
 	"ruff",
-	"terraformls",
-  "tailwindcss",
+	-- "terraformls",
+	"tailwindcss",
 	"tflint",
-	"tsgo"
+	"tsgo",
 	-- "vtsls",
 }

@@ -149,9 +149,3 @@ vim.keymap.set(
 	{ silent = true, noremap = true, desc = "Open current branch link" }
 )
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "css", "json", "javascript", "typescript", "javascriptreact", "typescriptreact", "terraform" },
-	callback = function()
-		vim.treesitter.start()
-	end,
-})

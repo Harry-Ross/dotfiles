@@ -142,6 +142,9 @@ gwt() {
     list|ls|l)
       git worktree list
       ;;
+    select|sel|s)
+      cd "$(git worktree list | fzf | awk '{print $1}')"
+      ;;
     *)
       echo "Usage: gwt {add|remove|list} [branch-name]"
       echo "  add    (a)  - Create and add a new worktree"
@@ -152,10 +155,14 @@ gwt() {
   esac
 }
 
+rgr() {
+  rg $1 --files-with-matches | xargs sed -i '' "s/$1/$2/g"
+}
+
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=100000
+SAVEHIST=100000
 bindkey -e
 bindkey "^[[3~" delete-char
 bindkey "^[[1;5C" forward-word
@@ -193,13 +200,12 @@ bindkey -v
 source ~/.zshrc.local
 
 # fnm
-FNM_PATH="/home/harry/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
+eval "`fnm env --corepack-enabled`"
 
 eval "$(zellij setup --generate-auto-start zsh)"
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux
 # fi
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export DENO_TLS_CA_STORE=system
