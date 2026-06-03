@@ -7,9 +7,10 @@ return {
 	"docker_language_server",
 	"jsonls",
 	"lua_ls",
-  "marksman",
+	"marksman",
 	"roslyn",
 	"ruff",
+	-- broken in 0.12 - https://github.com/hashicorp/terraform-ls/issues/2108
 	-- "terraformls",
 	"tailwindcss",
 	"tflint",
