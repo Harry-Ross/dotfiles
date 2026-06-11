@@ -3,21 +3,21 @@ return {
 	opts = function()
 		return {
 			ensure_installed = {
-	"astro",
-	"basedpyright",
-  "biome",
-	"clangd",
-  "denols",
-	"eslint",
-	"docker_language_server",
-	"jsonls",
-	"lua_ls",
-  "marksman",
-	"ruff",
-	"terraformls",
-  "tailwindcss",
-        -- "vtsls"
-},
+				"astro",
+				"basedpyright",
+				"biome",
+				"clangd",
+				"denols",
+				"eslint",
+				"docker_language_server",
+				"jsonls",
+				"lua_ls",
+				"marksman",
+				"ruff",
+				-- "terraformls",
+				"tailwindcss",
+				-- "vtsls"
+			},
 			automatic_enable = false,
 		}
 	end,

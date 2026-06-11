@@ -48,7 +48,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>lr",
-	"<cmd>:LspRestart<CR>",
+	"<cmd>:lsp restart<CR>",
 	{ desc = "LSP Restart", noremap = true, silent = true }
 )
 
@@ -148,4 +148,3 @@ vim.keymap.set(
 	"<cmd>GitLink! current_branch<cr>",
 	{ silent = true, noremap = true, desc = "Open current branch link" }
 )
-
