@@ -2,6 +2,7 @@ return {
 	"astro",
 	"basedpyright",
 	"biome",
+	"clangd",
 	"denols",
 	"eslint",
 	"docker_language_server",
