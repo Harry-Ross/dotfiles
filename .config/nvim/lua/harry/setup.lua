@@ -9,9 +9,11 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" 
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
 vim.keymap.set("n", "<leader>fd", builtin.lsp_document_symbols, { desc = "Telescope document symbols" })
-vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Telescope workplace symbols" })
+-- ponytail: dynamic re-queries the server per keystroke; the static one sends query="" once
+-- and tsgo caps that at N results, which is all lib/node_modules .d.ts
+vim.keymap.set("n", "<leader>fw", builtin.lsp_dynamic_workspace_symbols, { desc = "Telescope workplace symbols" })
 vim.keymap.set("n", "<leader>ft", builtin.lsp_type_definitions, { desc = "Telescope type definition" })
-vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "Telescope current bu" })
+vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "Telescope current buffer find" })
 vim.keymap.set("n", "<leader>fr", builtin.registers, { desc = "Telescope registers" })
 vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Telescope marks" })
 
@@ -26,11 +28,14 @@ vim.opt.smartindent = true
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.o.mouse = "a"
+vim.o.mouse = ""
+vim.opt.mousescroll = "ver:0,hor:0"
 
 vim.o.winborder = "rounded"
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open Oil" })
+vim.keymap.set("n", "<leader>E", "<CMD>Oil .<CR>", { desc = "Open Oil in the CWD" })
 
 vim.api.nvim_set_keymap(
 	"n",
@@ -89,7 +94,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.treesitter.start()
 
-		vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo0[0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 		vim.wo[0][0].foldmethod = "expr"
 	end,
 })

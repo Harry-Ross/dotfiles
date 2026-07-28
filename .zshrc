@@ -209,3 +209,4 @@ eval "$(zellij setup --generate-auto-start zsh)"
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export DENO_TLS_CA_STORE=system
+source ~/completion-for-pnpm.bash
