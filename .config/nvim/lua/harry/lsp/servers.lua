@@ -14,7 +14,6 @@ return {
 	-- broken in 0.12 - https://github.com/hashicorp/terraform-ls/issues/2108
 	"terraformls",
 	"tailwindcss",
+	"tsc",
 	"tflint",
-	"tsgo",
-	-- "vtsls",
 }
