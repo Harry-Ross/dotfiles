@@ -24,8 +24,10 @@
       "ls *": "allow",
       "which *": "allow",
       "rm *": "ask",
+
       "pnpm type-check *": "allow",
       "pnpm tsc *": "allow",
+      "pnpm vitest *": "allow",
     },
   },
   "lsp": true,
