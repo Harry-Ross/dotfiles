@@ -7,7 +7,6 @@ return {
 				"basedpyright",
 				"biome",
 				"clangd",
-				"denols",
 				"eslint",
 				"docker_language_server",
 				"jsonls",
@@ -16,7 +15,6 @@ return {
 				"ruff",
 				-- "terraformls",
 				"tailwindcss",
-				-- "vtsls"
 			},
 			automatic_enable = false,
 		}

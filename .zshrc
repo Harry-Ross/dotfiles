@@ -124,13 +124,17 @@ alias ls="ls -lahG"
 
 # git worktrees
 gwt() {
+  local root dest
   case "$1" in
     add|a)
       if [ -z "$2" ]; then
         echo "Usage: gwt add <branch-name>"
         return 1
       fi
-      git worktree add -b "$2" "../$2"
+      root="$(git rev-parse --show-toplevel)" || return 1
+      git worktree add -b "$2" "../$2" || return 1
+      dest="$(cd "../$2" && pwd)" || return 1
+      node "$HOME/config-scripts/gwt-copy-includes.mjs" "$root" "$dest"
       ;;
     remove|rm|r)
       if [ -z "$2" ]; then
@@ -209,3 +213,4 @@ eval "$(zellij setup --generate-auto-start zsh)"
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export DENO_TLS_CA_STORE=system
+source ~/completion-for-pnpm.bash
