@@ -14,6 +14,13 @@ if hostname == "harry-arch-laptop" then
 	})
 
 	hl.env("AQ_DRM_DEVICES", "/dev/dri/card2:/dev/dri/card1")
+elseif hostname == "harry-arch-desktop" then
+	hl.monitor({
+		output = "HDMI-A-1",
+		mode = "1920x1080x60",
+		position = "auto",
+		scale = "1.5",
+	})
 elseif hostname == "harry-arch-terra" then
 	hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@144", position = "2560x0", scale = 1 })
 	hl.monitor({ output = "DP-2", mode = "2560x1440@74.78", position = "0x0", scale = 1 })

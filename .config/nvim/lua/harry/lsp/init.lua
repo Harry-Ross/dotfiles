@@ -48,6 +48,26 @@ vim.lsp.config("roslyn", {
 	},
 })
 
+vim.lsp.config("tailwindcss", {
+	settings = {
+		tailwindCSS = {
+			-- strings passed to these functions
+			classFunctions = { "cn", "clsx", "cva", "cx", "tv", "twMerge", "twJoin" },
+			experimental = {
+				-- strings inside an object/var named *class/*classes/*className/*styles/*variants
+				-- ponytail: [^}] stops at the first `}`, so nested objects lose the tail.
+				-- Swap in a balanced-brace pattern only if that actually bites.
+				classRegex = {
+					{
+						"(?:[Cc]lass(?:es|Name)?|[Ss]tyles|[Vv]ariants)\\s*[:=]\\s*\\{([^}]*)\\}",
+						"[\"'`]([^\"'`]+)[\"'`]",
+					},
+				},
+			},
+		},
+	},
+})
+
 local servers = require("harry.lsp.servers")
 vim.lsp.enable(servers)
 
