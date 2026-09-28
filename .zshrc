@@ -220,6 +220,7 @@ alias lazypodman="DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock lazydoc
 
 export CLAUDE_CODE_DISABLE_TERMINAL_TITLE="1"
 export _ZO_EXCLUDE_DIRS="/node_modules:/.git:/dist:/build"
+export MISE_NODE_COREPACK=true
 
 export EDITOR="nvim"
 bindkey -v
