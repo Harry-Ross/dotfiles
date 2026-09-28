@@ -219,6 +219,7 @@ alias lg="lazygit"
 alias lazypodman="DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock lazydocker"
 
 export CLAUDE_CODE_DISABLE_TERMINAL_TITLE="1"
+export _ZO_EXCLUDE_DIRS="/node_modules:/.git:/dist:/build"
 
 export EDITOR="nvim"
 bindkey -v
@@ -232,5 +233,5 @@ eval "$(zellij setup --generate-auto-start zsh)"
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export DENO_TLS_CA_STORE=system
-source ~/completion-for-pnpm.bash
+source ~/completion-for-pnpm.zsh
 eval "$(mise activate zsh)"
