@@ -53,6 +53,9 @@ vim.lsp.config("tailwindcss", {
 		tailwindCSS = {
 			-- strings passed to these functions
 			classFunctions = { "cn", "clsx", "cva", "cx", "tv", "twMerge", "twJoin" },
+			-- defaults + any JSX prop containing className/Classname (e.g. iconClassName, wrapperClassname)
+			-- entries are joined into a regex by the server, so patterns work here
+			classAttributes = { "class", "className", "ngClass", "class:list", "\\w*[Cc]lass[Nn]ame\\w*" },
 			experimental = {
 				-- strings inside an object/var named *class/*classes/*className/*styles/*variants
 				-- ponytail: [^}] stops at the first `}`, so nested objects lose the tail.
