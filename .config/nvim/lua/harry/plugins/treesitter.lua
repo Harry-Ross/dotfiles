@@ -9,6 +9,7 @@ return {
 			"bash",
 			"c",
 			"css",
+			"cpp",
 			"diff",
 			"javascript",
 			"json",

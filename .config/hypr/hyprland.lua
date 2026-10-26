@@ -14,15 +14,22 @@ if hostname == "harry-arch-laptop" then
 	})
 
 	hl.env("AQ_DRM_DEVICES", "/dev/dri/card2:/dev/dri/card1")
-else
-	hl.monitor({ output = "DP-1", mode = "1920x1080@144", position = "2560x0", scale = 1 })
-	hl.monitor({ output = "HDMI-A-1", mode = "2560x1440@74.78", position = "0x0", scale = 1 })
+elseif hostname == "harry-arch-desktop" then
+	hl.monitor({
+		output = "HDMI-A-1",
+		mode = "1920x1080x60",
+		position = "auto",
+		scale = "1.5",
+	})
+elseif hostname == "harry-arch-terra" then
+	hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@144", position = "2560x0", scale = 1 })
+	hl.monitor({ output = "DP-2", mode = "2560x1440@74.78", position = "0x0", scale = 1 })
 
 	for _, ws in ipairs({ 1, 3, 5, 7, 9 }) do
-		hl.workspace_rule({ workspace = tostring(ws), monitor = "DP-1", default = ws == 1 })
+		hl.workspace_rule({ workspace = tostring(ws), monitor = "HDMI-A-1", default = ws == 1 })
 	end
 	for _, ws in ipairs({ 2, 4, 6, 8, 10 }) do
-		hl.workspace_rule({ workspace = tostring(ws), monitor = "HDMI-A-1", default = ws == 2 })
+		hl.workspace_rule({ workspace = tostring(ws), monitor = "DP-2", default = ws == 2 })
 	end
 end
 
@@ -103,7 +110,7 @@ hl.config({
 		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
 		allow_tearing = true,
 
-		layout = "dwindle",
+		layout = "master",
 	},
 
 	decoration = {
@@ -357,6 +364,7 @@ hl.window_rule({
 	match = { title = ".*Picture-in-Picture.*" },
 
 	float = true,
+	pin = true,
 })
 
 hl.config({

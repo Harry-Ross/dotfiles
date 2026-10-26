@@ -118,19 +118,43 @@ alias tf='terraform'
 
 alias gsd='git switch dev && git pull'
 alias gsm="git switch main && git pull"
-alias gmd="git switch dev && git pull --ff-only && git switch - && git merge dev"
+gmd() {
+  git switch dev && git pull --ff-only && git switch - || return
+  git merge dev && return  # clean merge, nothing to do
+
+  local -a conflicts
+  conflicts=(${(f)"$(git diff --name-only --diff-filter=U)"})
+
+  if (( $#conflicts == 1 )) && [[ $conflicts[1] == pnpm-lock.yaml ]]; then
+    echo "Only pnpm-lock.yaml conflicted — regenerating..."
+    pnpm install || return
+    git add pnpm-lock.yaml
+    git merge --continue
+  else
+    print -l "Conflicts:" $conflicts
+    return 1
+  fi
+}
 
 alias ls="ls -lahG"
 
 # git worktrees
 gwt() {
+  local root dest
   case "$1" in
     add|a)
       if [ -z "$2" ]; then
         echo "Usage: gwt add <branch-name>"
         return 1
       fi
-      git worktree add -b "$2" "../$2"
+      root="$(git rev-parse --show-toplevel)" || return 1
+      if git show-ref --verify --quiet "refs/heads/$2"; then
+        git worktree add "../$2" "$2" || return 1
+      else
+        git worktree add -b "$2" "../$2" || return 1
+      fi
+      dest="$(cd "../$2" && pwd)" || return 1
+      node "$HOME/config-scripts/gwt-copy-includes.mjs" "$root" "$dest"
       ;;
     remove|rm|r)
       if [ -z "$2" ]; then
@@ -194,13 +218,14 @@ alias lg="lazygit"
 
 alias lazypodman="DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock lazydocker"
 
+export CLAUDE_CODE_DISABLE_TERMINAL_TITLE="1"
+export _ZO_EXCLUDE_DIRS="/node_modules:/.git:/dist:/build"
+export MISE_NODE_COREPACK=true
+
 export EDITOR="nvim"
 bindkey -v
 
 source ~/.zshrc.local
-
-# fnm
-eval "`fnm env --corepack-enabled`"
 
 eval "$(zellij setup --generate-auto-start zsh)"
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -209,3 +234,5 @@ eval "$(zellij setup --generate-auto-start zsh)"
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export DENO_TLS_CA_STORE=system
+source ~/completion-for-pnpm.zsh
+eval "$(mise activate zsh)"
