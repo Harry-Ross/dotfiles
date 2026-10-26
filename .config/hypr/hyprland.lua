@@ -47,6 +47,7 @@ local powermenu = "~/.config/rofi/powermenu/type-2/powermenu.sh"
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent & swaync & waybar & hyprpaper & gammastep-indicator")
+	hl.exec_cmd("kwalletd6")
 	hl.exec_cmd('hostnamectl chassis | grep -qE "laptop|notebook|portable" && hypridle')
 	hl.exec_cmd(browser, { workspace = 1 })
 	hl.exec_cmd(terminal, { workspace = 3 })
