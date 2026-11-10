@@ -101,9 +101,7 @@
   },
   "bluetooth": {
     "on-click": "alacritty -e bluetui",
-    "format": " {status}",
-    "format-off": "",
-    "format-disabled": "", // icon only; tinted soft grey via #bluetooth.disabled in style.css
+    "format": "",
     "format-connected": " {device_alias}",
     "format-connected-battery": " {device_alias} {device_battery_percentage}%",
     "format-no-controller": "",
