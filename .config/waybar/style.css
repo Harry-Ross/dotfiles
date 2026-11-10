@@ -51,7 +51,9 @@ window#waybar {
 #mode,
 #custom-power,
 #custom-menu,
-#idle_inhibitor {
+#idle_inhibitor,
+#backlight,
+#bluetooth {
   padding: 0 10px;
 }
 #mode {
@@ -69,7 +71,11 @@ window#waybar {
   color: #2dcc36;
 }
 #pulseaudio.muted {
-  color: #cc3436;
+  color: #9aa0a6;
+}
+#bluetooth.off,
+#bluetooth.disabled {
+  color: #9aa0a6;
 }
 #battery.charging {
   color: #2dcc36;
