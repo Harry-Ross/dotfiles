@@ -122,7 +122,7 @@ hl.config({
 			enabled = true,
 			range = 4,
 			render_power = 3,
-			color = 0xee1a1a1a,
+			color = "0xee1a1a1a",
 		},
 
 		blur = {
@@ -132,6 +132,11 @@ hl.config({
 			vibrancy = 0.1696,
 		},
 		border_part_of_window = true,
+
+		wobble = {
+			enabled = true,
+			intensity = 0.5,
+		},
 	},
 
 	animations = {
